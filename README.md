@@ -13,7 +13,7 @@ As users perform operations in the Editor, Studio is writing human-readable, wel
 
 1. Make sure you're using node 18.
 1. Run `npm install`.
-1. Connect to your yext account with `yext init <acount_id>` or `yext init -u sandbox <account_id>` if using a sandbox account.
+1. Connect to your yext account with `yext init <account_id>` or `yext init -u sandbox <account_id>` if using a sandbox account.
 1. Cd into the starter repo and run `yext resources apply platform-config`. This will add some dummy data to your sandbox account.
 1. Run `npm run studio` and follow the login prompts.
 1. You should now see Yext Studio appear in the browser
