@@ -13,6 +13,7 @@ As users perform operations in the Editor, Studio is writing human-readable, wel
 
 1. Make sure you're using node 18.
 1. Run `npm install`.
+1. Create a new file in the root directory called ".env" and ask a team member to send you the content for theirs.
 1. Connect to your yext account with `yext init <account_id>` or `yext init -u sandbox <account_id>` if using a sandbox account.
 1. Optional - Cd into the starter repo and run `yext resources apply platform-config`. This will add some dummy data to your sandbox account.
 1. Run `npm run studio` and follow the login prompts. Login with Intuit SSO.
