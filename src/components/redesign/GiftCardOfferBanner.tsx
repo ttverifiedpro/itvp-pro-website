@@ -39,7 +39,7 @@ const GiftCardOfferBanner: FC = () => {
                 weightStationary={"heavy"}
                 as={"div"}
               >
-                as a gift card, must file by 3/31
+                as a gift card, must file by 5/15
               </ResponsiveTypography>
             <Link action={"engaged"}
                   object={"link"}
