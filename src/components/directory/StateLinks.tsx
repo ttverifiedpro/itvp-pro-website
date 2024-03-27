@@ -16,7 +16,7 @@ const StateLinks = (props: StateLinksProps) => {
   const title = "Find a TurboTax Verified Pro in All States";
 
   const [regionEntities, setRegionEntities] = useState<RegionEntitiesResponse>();  
-  const streamsApiKey = "5606fbbd0d232b9a2a1a81a6e489255b";
+  const streamsApiKey = YEXT_PUBLIC_STREAMS_API_KEY;
   useEffect(() => {
     fetch(
       `https://streams.yext.com/v2/accounts/me/api/directoryRegionEntities?v=20240222&api_key=${streamsApiKey}&limit=50`
