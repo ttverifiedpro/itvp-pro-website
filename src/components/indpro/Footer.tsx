@@ -58,7 +58,7 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
         <div className={"flex flex-wrap gap-5 justify-between"}>
           <B2 className={"flex flex-wrap gap-5"}>
             <FooterLink href={"/store-finder"}>Store Finder</FooterLink>
-            <FooterLink href={"/sitemap.xml"}>Sitemap</FooterLink>
+            <FooterLink href={"/expert-profile-sitemap.xml"}>Sitemap</FooterLink>
           </B2>
           <div className={"flex flex-wrap space-x-5"}>
             <YouTube />
