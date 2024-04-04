@@ -18,6 +18,7 @@ import { useMemo } from "react";
 import { createFaqStructuredData } from "../utils/faqStructuredData";
 import faqContent from "../assets/content/faqContent";
 import faqHeader from "../assets/content/faqHeader";
+import useIsPreview from "../hooks/useIsPreview";
 
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
@@ -51,12 +52,13 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
 
 const FAQ: Template<TemplateRenderProps> = () => {
   const config = useMemo(() => createConfig("faq"), []);
+  const isPreview = useIsPreview()
 
   return (
     <ConfigContext.Provider value={config}>
       <AnalyticsScreen scopeArea={"faq"} screen={"faq"}>
         <div className={"text-pepper120"}>
-          {config.showHeader && <Header />}
+          {!isPreview && config.showHeader && <Header />}
           <main className={"px-5 pt-5 pb-12 max-w-screen-m mx-auto"}>
             <H1 as={"h1"}>Intuit TurboTax Verified Pro</H1>
             <H3 as={"h2"} className={"mb-8"}>
@@ -64,7 +66,7 @@ const FAQ: Template<TemplateRenderProps> = () => {
             </H3>
             <FaqList />
           </main>
-          {config.showFooter && <Footer />}
+          {!isPreview && config.showFooter && <Footer />}
         </div>
       </AnalyticsScreen>
     </ConfigContext.Provider>
