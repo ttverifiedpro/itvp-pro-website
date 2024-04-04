@@ -11,7 +11,7 @@ const LinkDestinations = {
   turboTaxGuarantees: "https://turbotax.intuit.com/corp/guarantees/",
 } as const;
 
-const Link: React.FC<{ to: keyof typeof LinkDestinations }> = (props) => {;
+const Link: React.FC<{ to: keyof typeof LinkDestinations }> = (props) => {
   const isPreview = useIsPreview()
   
   return <BaseLink
