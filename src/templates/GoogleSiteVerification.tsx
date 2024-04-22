@@ -1,7 +1,6 @@
 import type {
   TemplateProps,
   TemplateRenderProps,
-  GetHeadConfig,
   GetPath,
   Template,
   TemplateConfig,
@@ -18,18 +17,9 @@ export const getPath: GetPath<TemplateProps> = () => {
   return "google167b18f51643ed7d.html";
 };
 
-// Add a title to the page
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
-  return {
-    title: "TurboTax® Verified Pro",
-  };
-};
-
 const GoogleSiteVerification: Template<TemplateRenderProps> = () => {
 
-  return (
-    "google-site-verification: google167b18f51643ed7d.html"
-  );
+  return `google-site-verification: google167b18f51643ed7d.html`
 };
 
 export default GoogleSiteVerification;
