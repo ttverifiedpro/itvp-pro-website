@@ -82,7 +82,7 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           </Link>
         </div>
       )}
-      {profile.address && (
+      {(profile.address && !profile.addressHidden) && (
         <div className="flex mt-2">
           <img
             className={"w-4 h-4 mr-[10px] mt-1"}
