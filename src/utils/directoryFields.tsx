@@ -35,6 +35,7 @@ const taxProsMainFields: string[] = [
   "dm_directoryChildren.slug",
   "dm_directoryChildren.name",
   "dm_directoryChildren.address",
+  "dm_directoryChildren.addressHidden",
   "dm_directoryChildren.headshot",
   "dm_directoryChildren.mainPhone",
   "dm_directoryChildren.c_taxProName",
