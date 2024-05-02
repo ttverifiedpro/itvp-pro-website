@@ -87,7 +87,7 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/prod/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
-    proMatchingIntroUrl: "https://pros-turbotax.app.intuit.com/pro-matching-intro",
+    proMatchingIntroUrl: "https://pros.turbotax.intuit.com/",
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
       makeCtaUrl(pro, "https://pros-turbotax.app.intuit.com/pro-matching-intro"),
   },
