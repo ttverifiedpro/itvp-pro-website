@@ -60,8 +60,8 @@ const FAQ: Template<TemplateRenderProps> = () => {
         <div className={"text-pepper120"}>
           {!isPreview && config.showHeader && <Header />}
           <main className={"px-5 pt-5 pb-12 max-w-screen-m mx-auto"}>
-            <H1 as={"h1"}>Intuit TurboTax Verified Pro</H1>
-            <H3 as={"h2"} className={"mb-8"}>
+            {!isPreview && <H1 as={"h1"}>Intuit TurboTax Verified Pro</H1>}
+            <H3 as={"h2"} className={"mb-6"}>
               Frequently Asked Questions
             </H3>
             <FaqList />
