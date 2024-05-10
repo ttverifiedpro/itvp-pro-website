@@ -1,7 +1,7 @@
 import {useEffect, useMemo, useState} from "react";
 
 const useIsPreview = (): boolean => {
-  // Try to get accurate value for preview at start to avoid showing page rendered
+  // Try to get an accurate value for preview at start to avoid showing page rendered
   // as no-preview and then a second later change to preview
   const defaultPreview = useMemo(() => {
     if (!window) return false;
