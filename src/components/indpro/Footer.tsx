@@ -58,7 +58,7 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
         <div className={"flex flex-wrap gap-5 justify-between"}>
           <B2 className={"flex flex-wrap gap-5"}>
             <FooterLink href={"/store-finder"}>Store Finder</FooterLink>
-            <FooterLink href={"/expert-profile-sitemap.xml"}>Sitemap</FooterLink>
+            <FooterLink href={"/sitemap.xml"}>Sitemap</FooterLink>
           </B2>
           <div className={"flex flex-wrap space-x-5"}>
             <YouTube />
@@ -121,7 +121,7 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
           </div>
 
           <div className={"flex flex-col s:flex-row gap-4"}>
-            <ul className={"flex flex-wrap s:block s:columns-2 s:w-[275px]"}>
+            <ul className={"flex flex-wrap s:block s:w-[275px]"}>
               <FooterListLink href={"https://www.intuit.com/company/"} text={"About Intuit"} />
               <FooterListLink href={"https://www.intuit.com/careers/"} text={"Join Our Team"} />
               <FooterListLink href={"https://www.intuit.com/company/press-room/"} text={"Press"} />
@@ -139,6 +139,14 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
               <FooterListLink
                 href={"https://www.intuit.com/accessibility/"}
                 text={"Accessibility"}
+              />
+              <FooterListLink
+                  href={"https://pros.turbotax.intuit.com/full-service-experts/directory"}
+                  text={"Find a TurboTax Live Full Service expert"}
+              />
+              <FooterListLink
+                  href={"https://pros.turbotax.intuit.com/local-tax-experts"}
+                  text={"Find a Verified Tax Professional near you"}
               />
             </ul>
 
@@ -260,7 +268,7 @@ const ProductLogo: React.FC<{ href: string; name: string; image: string; width: 
 const FooterListLink: React.FC<{ href: string; text: string }> = ({ href, text }) => {
   return (
     <li
-      className={`mb-2 s:max-w-[130px] text-2 after:content-['|'] after:px-2 after:last:content-none after:last:px-0 s:after:content-none s:after:px-0`}
+      className={`mb-2 text-2 after:content-['|'] after:px-2 after:last:content-none after:last:px-0 s:after:content-none s:after:px-0`}
     >
       <FooterLink href={href}>{text}</FooterLink>
     </li>

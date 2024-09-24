@@ -24,6 +24,6 @@ export const getPath: GetPath<TemplateProps> = () => {
 export const render = (data: TemplateRenderProps) => {
   return `User-agent: *
 Disallow:
-Sitemap: https://pros.turbotax.intuit.com/expert-profile-sitemap.xml
+Sitemap: https://pros.turbotax.intuit.com/sitemap.xml
 `;
 };
