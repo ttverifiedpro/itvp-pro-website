@@ -1,18 +1,19 @@
-export interface Address {
-	line1?: string,
-	line2?: string,
-	line3?: string,
-	sublocality?: string,
-	city?: string,
-	region?: string,
-	postalCode?: string,
-	extraDescription?: string,
-	countryCode?: string,
+export interface C_meta {
+	title?: string,
+	description?: string,
 }
 
-export interface Coordinate {
-	latitude?: number,
-	longitude?: number,
+export enum LinkType {
+	OTHER = "Other",
+	URL = "URL",
+	PHONE = "Phone",
+	EMAIL = "Email",
+}
+
+export interface C_findAVerifiedPro {
+	label?: string,
+	linkType?: LinkType,
+	link?: string,
 }
 
 export interface ImageThumbnail {
@@ -27,6 +28,104 @@ export interface Image {
 	height: number,
 	thumbnails?: ImageThumbnail[],
 	alternateText?: string,
+}
+
+export interface Address {
+	line1?: string,
+	line2?: string,
+	line3?: string,
+	sublocality?: string,
+	city?: string,
+	region?: string,
+	postalCode?: string,
+	extraDescription?: string,
+	countryCode?: string,
+}
+
+export interface Dm_directoryChildren {
+	slug?: string,
+	name?: string,
+	address?: Address,
+	addressHidden?: boolean,
+	headshot?: Image,
+	mainPhone?: any,
+	c_taxProName?: string,
+	googlePlaceId?: string,
+	c_tagline?: string,
+	dm_baseEntityCount?: string,
+	dm_directoryChildren?: any,
+}
+
+export interface Dm_directoryParents_directory {
+	slug?: string,
+	name?: string,
+}
+
+export interface DirectoryCity {
+	id: string,
+	uid: string,
+	name: string,
+	slug: string,
+	c_meta: C_meta,
+	c_heroTitle: string,
+	c_heroDescription: string,
+	c_findAVerifiedPro: C_findAVerifiedPro,
+	c_findAVerifiedProHeroText: string,
+	c_directoryHeroImage: Image,
+	c_onrampCTAURL: string,
+	dm_directoryChildren: Dm_directoryChildren[],
+	dm_directoryParents_directory: Dm_directoryParents_directory[],
+}
+
+export interface Dm_directoryChildren_1 {
+	slug?: string,
+	name?: string,
+	dm_baseEntityCount?: string,
+	dm_directoryChildren?: any,
+}
+
+export interface DirectoryRegion {
+	id: string,
+	uid: string,
+	name: string,
+	slug: string,
+	c_meta: C_meta,
+	c_heroTitle: string,
+	c_heroDescription: string,
+	c_findAVerifiedPro: C_findAVerifiedPro,
+	c_findAVerifiedProHeroText: string,
+	c_directoryHeroImage: Image,
+	c_onrampCTAURL: string,
+	dm_directoryChildren: Dm_directoryChildren_1[],
+	dm_directoryParents_directory: Dm_directoryParents_directory[],
+}
+
+export interface Dm_directoryChildren_2 {
+	slug?: string,
+	name?: string,
+	dm_baseEntityCount?: string,
+	dm_directoryChildren?: any,
+}
+
+export interface DirectoryRoot {
+	id: string,
+	uid: string,
+	name: string,
+	slug: string,
+	c_meta: C_meta,
+	c_heroTitle: string,
+	c_heroDescription: string,
+	c_findAVerifiedPro: C_findAVerifiedPro,
+	c_findAVerifiedProHeroText: string,
+	c_directoryHeroImage: Image,
+	c_onrampCTAURL: string,
+	dm_directoryChildren: Dm_directoryChildren_2[],
+	dm_directoryParents_directory: Dm_directoryParents_directory[],
+}
+
+export interface Coordinate {
+	latitude?: number,
+	longitude?: number,
 }
 
 export interface Interval {
