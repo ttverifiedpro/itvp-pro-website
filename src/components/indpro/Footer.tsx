@@ -141,7 +141,7 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
                 text={"Accessibility"}
               />
               <FooterListLink
-                  href={"https://pros.turbotax.intuit.com/full-service-experts/directory"}
+                  href={"https://pros.turbotax.intuit.com/full-service-experts/"}
                   text={"Find a TurboTax Live Full Service expert"}
               />
               <FooterListLink
