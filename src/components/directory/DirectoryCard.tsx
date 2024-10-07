@@ -4,6 +4,8 @@ import Link from "../atoms/Link";
 import { formatUSPhoneNumber } from "../../utils/helpers";
 import PhoneIcon from "../../assets/images/phone.svg";
 import PinIcon from "../../assets/images/pin.svg";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useEffect, useState} from "react";
 
 interface DirectoryCardProps {
   profile: TaxProsMain;
@@ -13,6 +15,11 @@ interface DirectoryCardProps {
 const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
   // relativePrefixToRoot could be used in phase 2 for link to location page
   const { profile, relativePrefixToRoot } = props;
+  const queryParams = useGetQueryParams();
+  const [fullUrl, setFullUrl] = useState('');
+  useEffect(() => {
+      setFullUrl(relativePrefixToRoot + profile.slug + queryParams);
+  }, [queryParams]);
 
   return (
     <div className="h-full p-6 s:px-10">
@@ -33,7 +40,7 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           <div className="flex justify-center items-center text-pepper120 text-[20px] leading-[28px] font-normal s:text-[24px] s:leading-[30px]">
             <Link
               className={"text-blueberry80 underline hover:no-underline"}
-              href={relativePrefixToRoot + profile.slug}
+              href={fullUrl}
               action={"engaged"}
               object={"directory teaser pro name"}
               objectDetail={profile.c_taxProName}
@@ -48,7 +55,7 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           {profile.c_tagline.slice(0, 200)}...
           <Link
             className={"ml-1 text-blueberry80 underline hover:no-underline"}
-            href={relativePrefixToRoot + profile.slug}
+            href={fullUrl}
             action={"engaged"}
             object={"directory teaser tagline learn more"}
             objectDetail={"Learn More"}

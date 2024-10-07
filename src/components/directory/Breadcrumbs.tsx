@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
+import {ReactNode, useEffect, useState} from "react";
 import classNames from "classnames";
 import Link from "../atoms/Link";
 import { stateAbbrToName } from "../../utils/helpers";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
 
 interface BreadcrumbsPropsDefault {
   breadcrumbs: Array<{ slug?: string; name: string }>;
@@ -64,6 +65,11 @@ interface BreadcrumbProps {
 
 const Breadcrumb = (props: BreadcrumbProps) => {
   const { name, slug, index } = props;
+  const queryParams = useGetQueryParams();
+  const [fullUrl, setFullUrl] = useState('');
+  useEffect(() => {
+    setFullUrl(slug + queryParams);
+  }, [queryParams]);
 
   let nameCleaned = name;
   if (nameCleaned === "Directory") {
@@ -76,7 +82,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     return (
       <Link
         className={"text-blueberry80 text-[14px] leading-[20px] font-medium underline s:no-underline hover:underline"}
-        href={slug}
+        href={fullUrl}
         action={"engaged"}
         object={"directory breadcrumb link"}
         objectDetail={nameCleaned}

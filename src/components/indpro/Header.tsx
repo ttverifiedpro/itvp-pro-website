@@ -4,12 +4,18 @@ import Lock from "../../assets/icons/Lock";
 import useConfig from "../../hooks/useConfig";
 import Link from "../atoms/Link";
 import type React from "react";
+import {useEffect, useState} from "react";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
 
 interface Props {}
 
 const Header: React.FC<Props> = () => {
   const config = useConfig();
-
+  const queryParams = useGetQueryParams();
+  const [fullUrl, setFullUrl] = useState('');
+  useEffect(() => {
+    setFullUrl('https://pros.turbotax.intuit.com' + queryParams);
+  }, [queryParams]);
   return (
     <header
       className={
@@ -20,7 +26,7 @@ const Header: React.FC<Props> = () => {
         action={"engaged"}
         object={"header logo"}
         objectDetail={"Verified Pro logo"}
-        href={"https://pros.turbotax.intuit.com/"}
+        href={"https://pros.turbotax.intuit.com"}
       >
         <picture>
           <source
@@ -41,7 +47,7 @@ const Header: React.FC<Props> = () => {
 
       {config.showMatchingCTAs && (
         <div className={"gap-5 flex"}>
-          <Button priority={"primary"} iconBefore={<Search />} as={"a"} href={"https://pros.turbotax.intuit.com/"}>
+          <Button priority={"primary"} iconBefore={<Search />} as={"a"} href={fullUrl}>
             Find a pro
           </Button>
           <Button

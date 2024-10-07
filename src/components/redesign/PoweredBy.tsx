@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import TIPLogo from "../../assets/logos/5050_horizontal.svg";
 import LifetimeBadge from "../../assets/icons/badges/lifetime.svg";
 import RefundBadge from "../../assets/icons/badges/refund.svg";
@@ -11,8 +11,14 @@ import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { TextColor } from "../atoms/TextColor";
 import { PageSection } from "./constants";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
 
 const PoweredBy: React.FC = () => {
+    const [fullUrl, setFullUrl] = useState('');
+    const queryParams = useGetQueryParams();
+    useEffect(() => {
+        setFullUrl("/" + queryParams);
+    }, [queryParams]);
   return (
     <Section
       id={PageSection.PoweredBy}
@@ -45,7 +51,7 @@ const PoweredBy: React.FC = () => {
           description={`Your tax expert will only sign and file your return when it's 100% correct.`}
         />
       </div>
-      <Button as={"a"} href={"/"} priority={"secondary"} className={"hidden s:block self-start"}>
+      <Button as={"a"} href={fullUrl} priority={"secondary"} className={"hidden s:block self-start"}>
         Learn more about Verified Pro
       </Button>
     </Section>

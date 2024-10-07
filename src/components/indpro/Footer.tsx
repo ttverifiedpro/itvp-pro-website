@@ -16,17 +16,18 @@ import Link from "../atoms/Link";
 import { TypeScale } from "../atoms/TypeScale";
 import StateLinks from '../directory/StateLinks';
 import classNames from "classnames";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
 
-interface FooterGlobalProps {
-  baseUrl?: string;
-}
-
-const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
-  const baseUrl = props.baseUrl ?? 'https://pros.turbotax.intuit.com/';
+const Footer: React.FC = () => {
+  const baseUrl = 'https://pros.turbotax.intuit.com/';
   const [isInCalifornia, setIsInCalifornia] = useState(
     globalThis.document?.cookie.includes("AKES_GEO=US~CA")
   );
-
+  const [fullUrl, setFullUrl] = useState(baseUrl);
+  const queryParams = useGetQueryParams();
+  useEffect(() => {
+    setFullUrl('https://pros.turbotax.intuit.com' + queryParams);
+  }, [queryParams]);
   useEffect(() => {
     // We won't know if the user is in CA when the page is statically rendered, so we'll check again after the page loads.
     setTimeout(() => {
@@ -145,7 +146,7 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
                   text={"Find a TurboTax Live Full Service expert"}
               />
               <FooterListLink
-                  href={"https://pros.turbotax.intuit.com/local-tax-experts"}
+                  href={fullUrl}
                   text={"Find a Verified Tax Professional near you"}
               />
             </ul>
