@@ -2,7 +2,7 @@ import DirectoryHeroImage from "../../assets/images/directory_hero.jpg";
 import { LexicalRichText } from "@yext/pages-components";
 import { RTF2, CTA } from "../../types/entities";
 import Button from "../atoms/Button";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 import {useEffect, useState} from "react";
 
 interface DirectoryHeroProps {
@@ -22,7 +22,7 @@ const DirectoryHero = (props: DirectoryHeroProps) => {
   const ctaLabel = FindProCTA?.label ?? "Find a Verified Pro";
   const ctaUrl = FindProCTA?.link ?? "https://pros.turbotax.intuit.com/pro-matching-intro";
 
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [fullUrl, setFullUrl] = useState('');
   useEffect(() => {
     setFullUrl(ctaUrl + queryParams);

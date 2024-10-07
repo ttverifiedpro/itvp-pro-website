@@ -1,6 +1,6 @@
 import OnrampImage from "../../assets/images/onramp.svg";
 import Button from "../atoms/Button";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 import {useEffect, useState} from "react";
 
 interface OnrampProps {
@@ -12,7 +12,7 @@ const Onramp = (props: OnrampProps) => {
   const description = "Tell us a bit about you and your taxes to match with a pro who specializes in your tax situation.";
   const ctaText = "Get Started";
   const ctaUrl = props.ctaUrl ?? "https://pros.turbotax.intuit.com/pro-matching-intro";
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [fullUrl, setFullUrl] = useState('');
   useEffect(() => {
     setFullUrl(ctaUrl + queryParams);

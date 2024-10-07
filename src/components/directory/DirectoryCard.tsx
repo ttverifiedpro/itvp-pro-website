@@ -4,7 +4,7 @@ import Link from "../atoms/Link";
 import { formatUSPhoneNumber } from "../../utils/helpers";
 import PhoneIcon from "../../assets/images/phone.svg";
 import PinIcon from "../../assets/images/pin.svg";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 import {useEffect, useState} from "react";
 
 interface DirectoryCardProps {
@@ -15,7 +15,7 @@ interface DirectoryCardProps {
 const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
   // relativePrefixToRoot could be used in phase 2 for link to location page
   const { profile, relativePrefixToRoot } = props;
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [fullUrl, setFullUrl] = useState('');
   useEffect(() => {
       setFullUrl(relativePrefixToRoot + profile.slug + queryParams);

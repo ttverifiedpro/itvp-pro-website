@@ -6,19 +6,21 @@ import { TypeScale } from "../atoms/TypeScale";
 import Call from "../../assets/icons/Call";
 import { MatchingCtaButton } from "./SharedComponents";
 import { PageSection } from "./constants";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 
 const Header: React.FC = () => {
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [fullUrl, setFullUrl] = useState('');
+  const [logoUrl, setLogoUrl] = useState('');
   useEffect(() => {
     setFullUrl(`https://pros-turbotax.app.intuit.com/pro-matching${queryParams}`);
+    setLogoUrl("/" + queryParams);
   }, [queryParams])
   return (
     <header className={"bg-white px-6 py-4 sticky top-0 shadow-elev1 z-10"}>
       <div className={"flex justify-between"}>
         <nav className={"flex gap-6 items-center"}>
-          <Link action={"engaged"} href={"/"} object={"tip_logo"} uiObjectDetail={"tip_logo"}>
+          <Link action={"engaged"} href={logoUrl} object={"tip_logo"} uiObjectDetail={"tip_logo"}>
             <picture>
               <source srcSet={TIPLogo} width={146} height={24} media={"(min-width: 360px)"} />
               {/* checkball logo for tiny screens */}
