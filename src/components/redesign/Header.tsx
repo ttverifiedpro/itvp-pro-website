@@ -10,15 +10,17 @@ import {useGetQueryParams} from "../../hooks/useGetQueryParams";
 
 const Header: React.FC = () => {
   const queryParams = useGetQueryParams();
+  const [headerUrl, setHeaderUrl] = useState('');
   const [fullUrl, setFullUrl] = useState('');
   useEffect(() => {
     setFullUrl(`https://pros-turbotax.app.intuit.com/pro-matching${queryParams}`);
+    setHeaderUrl("/" + queryParams);
   }, [queryParams])
   return (
     <header className={"bg-white px-6 py-4 sticky top-0 shadow-elev1 z-10"}>
       <div className={"flex justify-between"}>
         <nav className={"flex gap-6 items-center"}>
-          <Link action={"engaged"} href={"/"} object={"tip_logo"} uiObjectDetail={"tip_logo"}>
+          <Link action={"engaged"} href={headerUrl} object={"tip_logo"} uiObjectDetail={"tip_logo"}>
             <picture>
               <source srcSet={TIPLogo} width={146} height={24} media={"(min-width: 360px)"} />
               {/* checkball logo for tiny screens */}
