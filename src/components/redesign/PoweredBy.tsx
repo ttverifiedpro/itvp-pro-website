@@ -11,11 +11,11 @@ import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { TextColor } from "../atoms/TextColor";
 import { PageSection } from "./constants";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 
 const PoweredBy: React.FC = () => {
     const [fullUrl, setFullUrl] = useState('');
-    const queryParams = useGetQueryParams();
+    const queryParams = useGetRPRQueryParams();
     useEffect(() => {
         setFullUrl("/" + queryParams);
     }, [queryParams]);

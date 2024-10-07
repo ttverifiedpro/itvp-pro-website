@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react";
-import {enrichCTAQueryParams} from "../utils/queryParamUtils";
+import {enrichRPRQueryParams} from "../utils/queryParamUtils";
 
 
-export const useGetQueryParams = (): string => {
+export const useGetRPRQueryParams = (): string => {
     const [queryParamsReturn, setQueryParams] = useState(() => {
-        const queryParams = enrichCTAQueryParams().toString();
+        const queryParams = enrichRPRQueryParams().toString();
         return queryParams ? `?${queryParams}` : '';
     });
 
     useEffect(() => {
         if (!globalThis.document) return;
-        const queryParams = enrichCTAQueryParams().toString();
+        const queryParams = enrichRPRQueryParams().toString();
         setQueryParams(queryParams ? `?${queryParams}` : '');
     }, []);
 

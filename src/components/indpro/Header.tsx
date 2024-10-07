@@ -5,13 +5,13 @@ import useConfig from "../../hooks/useConfig";
 import Link from "../atoms/Link";
 import type React from "react";
 import {useEffect, useState} from "react";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 
 interface Props {}
 
 const Header: React.FC<Props> = () => {
   const config = useConfig();
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [fullUrl, setFullUrl] = useState('');
   useEffect(() => {
     setFullUrl('https://pros.turbotax.intuit.com' + queryParams);
@@ -26,7 +26,7 @@ const Header: React.FC<Props> = () => {
         action={"engaged"}
         object={"header logo"}
         objectDetail={"Verified Pro logo"}
-        href={"https://pros.turbotax.intuit.com"}
+        href={fullUrl}
       >
         <picture>
           <source

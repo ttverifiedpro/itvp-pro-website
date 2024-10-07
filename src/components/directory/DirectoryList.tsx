@@ -3,7 +3,7 @@ import Link from "../atoms/Link";
 import {stateAbbrToName} from "../../utils/helpers";
 import ArrowRightIcon from "../../assets/images/arrow-right.svg";
 import classNames from "classnames";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 import {useEffect, useState} from "react";
 
 interface DirectoryListProps {
@@ -27,7 +27,7 @@ const DirectoryList = (props: DirectoryListProps) => {
     const nameB = b.name || '';
     return nameA.localeCompare(nameB);
   });
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [queryParamsState, setQueryParams] = useState('');
   useEffect(() => {
     setQueryParams(queryParams);

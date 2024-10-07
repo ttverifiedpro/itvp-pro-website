@@ -16,7 +16,7 @@ import Link from "../atoms/Link";
 import { TypeScale } from "../atoms/TypeScale";
 import StateLinks from '../directory/StateLinks';
 import classNames from "classnames";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 
 const Footer: React.FC = () => {
   const baseUrl = 'https://pros.turbotax.intuit.com/';
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
     globalThis.document?.cookie.includes("AKES_GEO=US~CA")
   );
   const [fullUrl, setFullUrl] = useState(baseUrl);
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   useEffect(() => {
     setFullUrl('https://pros.turbotax.intuit.com' + queryParams);
   }, [queryParams]);

@@ -2,7 +2,7 @@ import {ReactNode, useEffect, useState} from "react";
 import classNames from "classnames";
 import Link from "../atoms/Link";
 import { stateAbbrToName } from "../../utils/helpers";
-import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useGetRPRQueryParams} from "../../hooks/useGetRPRQueryParams";
 
 interface BreadcrumbsPropsDefault {
   breadcrumbs: Array<{ slug?: string; name: string }>;
@@ -65,7 +65,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb = (props: BreadcrumbProps) => {
   const { name, slug, index } = props;
-  const queryParams = useGetQueryParams();
+  const queryParams = useGetRPRQueryParams();
   const [fullUrl, setFullUrl] = useState('');
   useEffect(() => {
     setFullUrl(slug + queryParams);
