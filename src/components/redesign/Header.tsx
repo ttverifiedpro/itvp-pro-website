@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import TIPLogo from "../../assets/logos/5050_horizontal.svg";
 import Button from "../atoms/Button";
 import Link from "../atoms/Link";
@@ -6,10 +6,14 @@ import { TypeScale } from "../atoms/TypeScale";
 import Call from "../../assets/icons/Call";
 import { MatchingCtaButton } from "./SharedComponents";
 import { PageSection } from "./constants";
-import useIndependentPro from "../../hooks/useIndependentPro";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
 
 const Header: React.FC = () => {
-  const pro = useIndependentPro();
+  const queryParams = useGetQueryParams();
+  const [fullUrl, setFullUrl] = useState('');
+  useEffect(() => {
+    setFullUrl(`https://pros-turbotax.app.intuit.com/pro-matching${queryParams}`);
+  }, [queryParams])
   return (
     <header className={"bg-white px-6 py-4 sticky top-0 shadow-elev1 z-10"}>
       <div className={"flex justify-between"}>
@@ -35,7 +39,7 @@ const Header: React.FC = () => {
         <div className={"flex gap-4"}>
           <Button
             as={"a"}
-            href={"https://pros-turbotax.app.intuit.com/pro-matching"}
+            href={fullUrl}
             priority={"secondary"}
             className={"hidden s:block"}
           >

@@ -1,8 +1,10 @@
-import type { DirectoryProfile } from "../../types/entities";
+import type {DirectoryProfile} from "../../types/entities";
 import Link from "../atoms/Link";
-import { stateAbbrToName } from "../../utils/helpers";
+import {stateAbbrToName} from "../../utils/helpers";
 import ArrowRightIcon from "../../assets/images/arrow-right.svg";
 import classNames from "classnames";
+import {useGetQueryParams} from "../../hooks/useGetQueryParams";
+import {useEffect, useState} from "react";
 
 interface DirectoryListProps {
   directoryChildren: DirectoryProfile<never>[];
@@ -25,6 +27,11 @@ const DirectoryList = (props: DirectoryListProps) => {
     const nameB = b.name || '';
     return nameA.localeCompare(nameB);
   });
+  const queryParams = useGetQueryParams();
+  const [queryParamsState, setQueryParams] = useState('');
+  useEffect(() => {
+    setQueryParams(queryParams);
+  }, [queryParams]);
 
   return (
     <div className="flex flex-col">
@@ -38,7 +45,7 @@ const DirectoryList = (props: DirectoryListProps) => {
               className={"flex justify-between p-4 s:inline-block s:p-0"}
               action={"engaged"}
               object={"directory list link"}
-              href={relativePrefixToRoot + getSkipLevelSlug(child)}
+              href={relativePrefixToRoot + getSkipLevelSlug(child) + queryParamsState}
               objectDetail={stateAbbrToName(child.name)}
             >
               <div>
